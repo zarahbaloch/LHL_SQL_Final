@@ -39,7 +39,9 @@ SQL Queries:
 
 Answer:
 
+For the top 10 countries sorted by average products per visitor: 
 
+<img width="812" alt="Screenshot 2025-03-18 at 4 38 47 AM" src="https://github.com/user-attachments/assets/0fa706b0-24db-48d1-b294-6a601360ac77" />
 
 
 
@@ -48,9 +50,18 @@ Answer:
 
 SQL Queries:
 
-
+    SELECT DISTINCT ON (all_sessions.country) 
+    all_sessions.country, 
+    all_sessions.v2productcategory, 
+    SUM(products.orderedquantity) AS total_sold
+    FROM all_sessions
+    JOIN products ON all_sessions.productsku = products.productsku
+    GROUP BY all_sessions.country, all_sessions.v2productcategory
+    ORDER BY total_sold DESC;
 
 Answer:
+
+<img width="531" alt="Screenshot 2025-03-18 at 4 40 40 AM" src="https://github.com/user-attachments/assets/56966218-83e2-470a-8ca1-227658da3028" />
 
 
 
@@ -61,9 +72,25 @@ Answer:
 
 SQL Queries:
 
+    SELECT country, v2productcategory, total_sold
+    FROM (
+    SELECT DISTINCT ON (all_sessions.country) 
+        all_sessions.country, 
+        all_sessions.v2productcategory, 
+        SUM(products.orderedquantity) AS total_sold
+    FROM all_sessions
+    JOIN products ON all_sessions.productsku = products.productsku
+    WHERE all_sessions.country IS NOT NULL
+    GROUP BY all_sessions.country, all_sessions.v2productcategory
+    ORDER BY all_sessions.country, total_sold DESC
+
+
+ORDER BY total_sold DESC;
 
 
 Answer:
+
+<img width="681" alt="Screenshot 2025-03-18 at 4 42 49 AM" src="https://github.com/user-attachments/assets/c1458e08-2c3a-4e8c-b4a0-e66b3fef7673" />
 
 
 
@@ -71,13 +98,10 @@ Answer:
 
 **Question 5: Can we summarize the impact of revenue generated from each city/country?**
 ----------------------------------------------------------------------------------------------------
-SQL Queries:
-
+SQL Queries: 
 
 
 Answer:
-
-
 
 
 
