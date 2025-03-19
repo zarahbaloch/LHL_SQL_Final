@@ -94,11 +94,104 @@ The top-selling product by country reveals trends in purchasing behavior across 
 **Question 5: Can we summarize the impact of revenue generated from each city/country?**
 ----------------------------------------------------------------------------------------------------
 SQL Queries: 
+An example summary will be conducted for the US. 
 
+(1)
+a)Total Revenue Calculation. 
+
+    SELECT country, SUM(transactionrevenue) AS total_revenue
+    FROM all_sessions
+    WHERE country = 'United States' 
+    GROUP BY country;
+                            
+b) Orders Placed. 
+
+    SELECT country, COUNT(DISTINCT transactionid) AS total_orders
+    FROM all_sessions
+    WHERE country = 'United States' 
+    GROUP BY country                             
+
+c)Average Order Value. 
+
+    SELECT country, ROUND(SUM(transactionrevenue) / COUNT(DISTINCT transactionid), 2) 
+    AS average_order_value
+    FROM all_sessions
+    WHERE country = 'United States'
+    GROUP BY country;  
+
+(2) 
+a) Top Selling Product
+
+    SELECT DISTINCT ON (all_sessions.country) 
+    all_sessions.country, 
+    all_sessions.v2productcategory, 
+    SUM(products.orderedquantity) AS total_sold
+    FROM all_sessions
+    JOIN products ON all_sessions.productsku = products.productsku
+    WHERE all_sessions.country = 'United States'
+    GROUP BY all_sessions.country, all_sessions.v2productcategory
+    ORDER BY all_sessions.country, total_sold DESC;
+
+b) Product contribution to revenue (%) 
+
+    SELECT DISTINCT ON (all_sessions.country) 
+    all_sessions.country, 
+    all_sessions.v2productcategory, 
+    SUM(all_sessions.transactionrevenue) AS total_revenue,
+    (100 * SUM(all_sessions.transactionrevenue) / (SELECT SUM(transactionrevenue) 
+    FROM all_sessions 
+    WHERE country = 'United States'), ) 
+    AS revenue_percentage
+    FROM all_sessions
+    WHERE all_sessions.country = 'United States' 
+    GROUP BY all_sessions.country, all_sessions.v2productcategory
+    ORDER BY all_sessions.country, total_revenue DESC;
+
+c) Top 5 Revenue Concentration
+
+    SELECT DISTINCT ON (all_sessions.country) 
+    all_sessions.country, 
+    all_sessions.v2productcategory, 
+    SUM(all_sessions.transactionrevenue) AS total_revenue
+    FROM all_sessions
+    WHERE all_sessions.country = 'United States'
+    GROUP BY all_sessions.country, all_sessions.v2productcategory
+    ORDER BY all_sessions.country, total_revenue DESC
+    LIMIT 5;
+
+(3)
+a) Rank Countries by revenue 
+
+    SELECT country, 
+    SUM(transactionrevenue) AS total_revenue
+    FROM all_sessions
+    GROUP BY country
+    ORDER BY total_revenue DESC;
+
+b) Orders per country
+
+    SELECT country, 
+    COUNT(DISTINCT transactionid) AS total_orders
+    FROM all_sessions
+    GROUP BY country
+    ORDER BY total_orders DESC;
 
 Answer:
 
 By using the information gained from Questions 1-4, we can summarize revenue impact across different cities and countries. The highest revenue-generating region is the United States, where Kickball sold 409,590 units, contributing significantly to sales volume. Other major revenue-driving countries include India, the UK, Germany, and Canada, where custom decals were the top-selling product. The dominance of the "Home/Shop by Brand/YouTube" category across multiple countries suggests that brand-driven and influencer-led marketing plays a key role in sales performance. These insights can guide businesses in optimizing inventory, pricing, and marketing strategies to maximize revenue potential globally.
+
+
+In conducting impact of revenue, the following would be completed: 
+
+(1) By calculating total revenue, number of orders, and average order value (AOV) per country, it can determined which regions contribute the most to overall sales. Additionally, looking at revenue per visitor provides insight into whether high-revenue countries are driven by a large number of transactions or higher individual spending per customer.
+
+(2) Analyzing the top-selling product per country helps identifying what drives revenue in different regions. By determining each product's percentage contribution to total revenue, it can be assessed whether a country’s revenue is spent on a single product or spread across multiple items.
+
+(3) Comparing revenue across different countries allows for ranking from highest to lowest revenue contributors. This also helps assess whether high-revenue countries are actually high-value markets of interest or just processing a higher volume of orders. By comparing AOV and revenue per visitor, countries with high-spending customers can be seperated from those whos revenue is primarily driven by transaction quantity rather than individual order values.
+
+
+
+
 
 
 
