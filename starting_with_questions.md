@@ -43,7 +43,7 @@ For the top 10 countries sorted by average products per visitor:
 
 <img width="812" alt="Screenshot 2025-03-18 at 4 38 47 AM" src="https://github.com/user-attachments/assets/0fa706b0-24db-48d1-b294-6a601360ac77" />
 
-Understanding purchasing behavior of site visitors from different regions globally can allow for businesses to optimize marketing, inventory, and customer engagement strategies. This query determines the average number of products ordered per visitor, calculated by dividing total products ordered by the number of unique visitors per location. The highest recorded averages were from Council Bluffs, US, with 2 visitors ordering 7,589 products per visitor, followed by Bellflower, US, with 2 visitors ordering 3,786 products per visitor. Additionally, Montenegro, Côte d'Ivoire, and Cork, Ireland each had 1 visitor ordering 3,786 products per visitor, highlighting outlier purchasing behaviors. 
+Understanding purchasing behavior of site visitors from different regions globally can allow for businesses to optimize marketing, inventory, and customer engagement strategies. This query determines the average number of products ordered per visitor, calculated by dividing total products ordered by the number of unique visitors per location. The highest recorded averages were from Council Bluffs, US, with 2 visitors ordering 7,589 products per visitor, followed by Bellflower, US, with 2 visitors ordering 3,786 products per visitor. Additionally, Montenegro, Côte d'Ivoire, and Cork, Ireland each had 1 visitor ordering 3,786 products per visitor.
 
 **Question 3: Is there any pattern in the types (product categories) of products ordered from visitors in each city and country?**
 ----------------------------------------------------------------------------------------------------
@@ -78,12 +78,9 @@ SQL Queries:
         SUM(products.orderedquantity) AS total_sold
     FROM all_sessions
     JOIN products ON all_sessions.productsku = products.productsku
-    WHERE all_sessions.country IS NOT NULL
     GROUP BY all_sessions.country, all_sessions.v2productcategory
     ORDER BY all_sessions.country, total_sold DESC
-
-
-ORDER BY total_sold DESC;
+    ORDER BY total_sold DESC;
 
 
 Answer:
@@ -91,7 +88,7 @@ Answer:
 <img width="681" alt="Screenshot 2025-03-18 at 4 42 49 AM" src="https://github.com/user-attachments/assets/c1458e08-2c3a-4e8c-b4a0-e66b3fef7673" />
 
 
-
+The top-selling product by country reveals trends in purchasing behavior across different regions. The United States led with Kickball, selling 409,590 units, significantly outpacing other regions. Following this, custom decals emerged as the most popular product in multiple countries, including India, the UK, Germany, Canada, France, Japan, Romania, and Australia, with sales ranging from 83,292 units in India to 18,930 units in Australia. Meanwhile, Chile also showed a strong preference for Kickball, purchasing 15,170 units. This pattern suggests a regional preference for sports-related items in the US and Chile, whilst custom decals dominate in other international markets- perhaps indicating differences in consumer interests, cultural preferences, or local demand drivers.
 
 
 **Question 5: Can we summarize the impact of revenue generated from each city/country?**
