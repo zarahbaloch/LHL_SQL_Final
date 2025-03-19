@@ -43,7 +43,7 @@ For the top 10 countries sorted by average products per visitor:
 
 <img width="812" alt="Screenshot 2025-03-18 at 4 38 47 AM" src="https://github.com/user-attachments/assets/0fa706b0-24db-48d1-b294-6a601360ac77" />
 
-
+Understanding purchasing behavior of site visitors from different regions globally can allow for businesses to optimize marketing, inventory, and customer engagement strategies. This query determines the average number of products ordered per visitor, calculated by dividing total products ordered by the number of unique visitors per location. The highest recorded averages were from Council Bluffs, US, with 2 visitors ordering 7,589 products per visitor, followed by Bellflower, US, with 2 visitors ordering 3,786 products per visitor. Additionally, Montenegro, Côte d'Ivoire, and Cork, Ireland each had 1 visitor ordering 3,786 products per visitor, highlighting outlier purchasing behaviors. 
 
 **Question 3: Is there any pattern in the types (product categories) of products ordered from visitors in each city and country?**
 ----------------------------------------------------------------------------------------------------
@@ -63,9 +63,7 @@ Answer:
 
 <img width="531" alt="Screenshot 2025-03-18 at 4 40 40 AM" src="https://github.com/user-attachments/assets/56966218-83e2-470a-8ca1-227658da3028" />
 
-
-
-
+Across the top 10 countries analyzed (US, UK, India, Germany, Canada, Australia, France, Netherlands, and Italy), a clear pattern emerged in product category preferences. The most frequently ordered category in all these regions was "Home/Shop by Brand/YouTube," suggesting a strong influence of digital content and brand-driven shopping. This trend may indicate that consumers across these countries are engaging with online influencers or specific brand promotions whilst making purchasing decisions. 
 
 **Question 4: What is the top-selling product from each city/country? Can we find any pattern worthy of noting in the products sold?**
 ----------------------------------------------------------------------------------------------------
