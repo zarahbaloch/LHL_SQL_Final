@@ -98,6 +98,7 @@ SQL Queries:
 
 Answer:
 
+By using the information gained from Questions 1-4, we can summarize revenue impact across different cities and countries. The highest revenue-generating region is the United States, where Kickball sold 409,590 units, contributing significantly to sales volume. Other major revenue-driving countries include India, the UK, Germany, and Canada, where custom decals were the top-selling product. The dominance of the "Home/Shop by Brand/YouTube" category across multiple countries suggests that brand-driven and influencer-led marketing plays a key role in sales performance. These insights can guide businesses in optimizing inventory, pricing, and marketing strategies to maximize revenue potential globally.
 
 
 
