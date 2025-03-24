@@ -16,7 +16,11 @@ SQL Queries:
     ORDER BY products.sentimentscore ASC
 
 Answer: 
+
+
 <img width="882" alt="Screenshot 2025-03-24 at 5 07 20 PM" src="https://github.com/user-attachments/assets/370bdfb7-9cf0-4f7a-9a1e-9d89261f604c" />
+
+
 *Top 5 products with the lowest sentiment scores (potentially unsatisfied customers). 
 
 Question 2: 
@@ -60,7 +64,10 @@ SQL Queries:
     ORDER BY total_revenue DESC;
 
 Answer:
+
 <img width="535" alt="Screenshot 2025-03-24 at 5 38 41 PM" src="https://github.com/user-attachments/assets/af1e89ea-55aa-4dbb-a67a-57b77ca6eb44" />
+
+
 *The hour which brings the highest revenue is 19 (7:00PM), followed by 17 (5:00PM), 20 (8:00PM), 18 (6:00PM) and 21 (9:00PM). This provides a general trend of the evening being the largest purchasing time.
 
 Question 4: 
