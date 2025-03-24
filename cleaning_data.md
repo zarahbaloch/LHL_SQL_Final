@@ -77,11 +77,12 @@ item revenue: set null values to 0.
 Queries:
 Below, provide the SQL queries you used to clean your data.
 
-Example SQL Queries (Units_Sold)- ensuring it is not NULL or Negative + Setting NULL values to 0. 
+Example SQL Queries (units_sold)- ensuring it is not NULL or Negative + Setting NULL values to 0 
 
     SELECT * FROM analytics WHERE units_sold < 0 OR units_sold IS NULL;
 
     UPDATE analytics SET units_sold = 0 WHERE units_sold IS NULL;
+*this was completed for all columns, in all tables with applicable data types (listed above)
 
 Example SQL Queries (visitid)- check for duplicates  + attatch each visitid (duplicate or not) to a unique key to ensure no data necessary data is being deleted. 
 
@@ -96,6 +97,11 @@ Example SQL Queries (visitid)- check for duplicates  + attatch each visitid (dup
 
     #Assign new column (analytics_id) as the primary kery 
     ALTER TABLE analytics ADD CONSTRAINT pk_analytics PRIMARY KEY (analytics_id);
+
+
+    
+
+
 
 
 
