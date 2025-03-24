@@ -70,16 +70,3 @@ Answer:
 
 *The hour which brings the highest revenue is 19 (7:00PM), followed by 17 (5:00PM), 20 (8:00PM), 18 (6:00PM) and 21 (9:00PM). This provides a general trend of the evening being the largest purchasing time.
 
-Question 4: 
-
-SQL Queries:
-
-Answer:
-
-
-
-Question 5: 
-
-SQL Queries:
-
-Answer:
