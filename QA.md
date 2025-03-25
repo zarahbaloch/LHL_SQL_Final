@@ -13,7 +13,52 @@ What are your risk areas? Identify and describe them.
 QA Process:
 Describe your QA process and include the SQL queries used to execute it.
 
-1. Data Types Checks
-2. Assertion-Based Validity Checks
-3. Outlier Checks
-4. Join Validation
+1. Data Types Checks (Examples- Not all) 
+
+        #Check all tables 
+        SELECT table_name 
+        FROM information_schema.tables 
+        WHERE table_schema = 'public';
+
+        #Check datatypes per table (repeat for every table)
+        SELECT column_name, data_type
+        FROM information_schema.columns 
+        WHERE table_name = 'products';
+  
+2. Assertion-Based Validity Checks (Examples- Not all) 
+
+        #Ensuring data within logical ranges 
+        SELECT * FROM analytics WHERE revenue < 0;
+     
+        SELECT * FROM products WHERE sentimentscore < -1 OR sentimentscore > 1;
+
+
+       #Checking FK Consistency
+       SELECT sales_reports.productsku 
+       FROM sales_reports 
+       LEFT JOIN products ON sales_reports.productsku = products.productsku
+       WHERE products.productsku IS NULL;
+
+
+        #Checking for Uniqueness
+        SELECT productsku, COUNT(*) 
+        FROM products 
+        GROUP BY productsku 
+        HAVING COUNT(*) > 1;
+
+   
+4. Outlier Checks (Examples- Not all) 
+
+        #Ensuring data within business metrics 
+        SELECT * FROM all_sessions WHERE itemrevenue > 1000000;
+
+  
+6. Join Validation
+
+        #Ensuring all relationships are intact 
+        SELECT all_sessions.visitid, all_sessions.productsku, products.productname, analytics.revenue
+        FROM all_sessions
+        JOIN products ON all_sessions.productsku = products.productsku
+        JOIN analytics ON all_sessions.visitid = analytics.visitid
+        WHERE all_sessions.productsku IS NOT NULL 
+          AND all_sessions.visitid IS NOT NULL;
