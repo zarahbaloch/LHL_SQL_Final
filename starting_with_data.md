@@ -1,9 +1,7 @@
-Question 1: 
+Context: A sentiment score is a measure of emotional tone expressed in text. This falls within a range of -1 (very negative) to +1 (very positive). A sentiment magnitude is a measure of how much emotion is in a text (be it positive or negative). Understanding these values may allow for businesses to determine how their products are performing in the market. 
 
-A sentiment score is a measure of emotional tone expressed in text. This falls within a range of -1 (very negative) to +1 (very positive). A sentiment magnitude is a measure of how much emotion is in a text (be it positive or negative). Understanding these values may allow for businesses to determine how their products are performing in the market. 
-
-Which products have low sentiment scores (possible dissatisfaction)?
-
+Question 1: Which products have low sentiment scores (possible dissatisfaction)?
+-------------------------------------------------------------------------------
 SQL Queries:
 
     SELECT 
@@ -23,11 +21,11 @@ Answer:
 
 *Top 5 products with the lowest sentiment scores (potentially unsatisfied customers). 
 
-Question 2: 
 
-Understanding which types of social engangement drives brands & companies to achieve their highest purchases & revenues, allows for the optimization of marketing strategies to further increase earnings. 
+Context: Understanding which types of social engangement drives brands & companies to achieve their highest purchases & revenues, allows for the optimization of marketing strategies to further increase earnings. 
 
-What is the most effective engagement type for purchases? 
+Question 2: What is the most effective engagement type for purchases? 
+-------------------------------------------------------------------------------
 
 SQL Queries:
 
@@ -42,11 +40,12 @@ Answer:
 
 Overall, it seems the most revenue ($1 167 078 437 957) is collectively achieved through No Social Engangement ('Not Socially Enganged'). 
 
-Question 3: 
 
-As a business, it is important to recognize what time of day the most purchases occur. This can be for sales (optimizing sales strategies to target that time), for the technical support aspect (ensuring extra support in case the site goes down for increased activity) and for more! 
 
-What times of day have the highest sales activity?
+Context: As a business, it is important to recognize what time of day the most purchases occur. This can be for sales (optimizing sales strategies to target that time), for the technical support aspect (ensuring extra support in case the site goes down for increased activity) and for more! 
+
+Question 3:  What times of day have the highest sales activity?
+-------------------------------------------------------------------------------
 
 SQL Queries:
 
